@@ -18,3 +18,6 @@ https://colab.research.google.com/drive/1_OIuxdnO-FT08gkEFe3NflKjRv2oVTOO?usp=sh
 ## Week 1
 **resources**
 https://docs.google.com/document/d/1WTWcINofePitW0qNYnLvAnhzsIMKG6fq_whMjascnlQ/edit?usp=sharing
+## Week 2
+**resources**
+https://docs.google.com/document/d/1Sl-oi5ErlmIlTbNWZCI66X_8XkwlVpq5kLYGrzj1KIE/edit?usp=sharing
