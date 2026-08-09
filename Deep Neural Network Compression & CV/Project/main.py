@@ -13,9 +13,9 @@ train_loader,test_loader = MNIST_loader(path)
 model = mnist_model()
 model = model.to(device)
 
-train_and_eval(model,train_loader,test_loader,device,epochs=300)
-prune_model(model,0.90)
-train_and_eval(model,train_loader,test_loader,device,epochs=50)
+train_and_eval(model,train_loader,test_loader,device,epochs=1)
+prune_model(model,0.95)
+train_and_eval(model,train_loader,test_loader,device,epochs=1)
 
 def count_mask_sparsity(model):
     total = 0
@@ -27,12 +27,9 @@ def count_mask_sparsity(model):
     print(f"Masked sparsity: {100 * zeros / total:.2f}%")
 
 count_mask_sparsity(model)
-
 torch.save(model.state_dict(), "compressed_models/model.pth")
-
-quantize_model(model,16) #because the minium size of pytorch is uint8 you can have till 256 weights
+quantize_model(model,16)
 train_and_eval(model,train_loader,test_loader,device,epochs=1)
-
 npz_path = "compressed_models/compressed.npz"
 save_model_npz(model,npz_path)
 
@@ -43,12 +40,3 @@ model2 = model2.to(device)
 print(evaluate(model2,test_loader,device))
 print(model.classifier[0].__dict__.keys())
 print(model.classifier[0].weight)
-
-
-'''
-2 things
-1) runtime memory report 
-2) disk space 
-
-# dont use you own laptop while doing this 
-'''
